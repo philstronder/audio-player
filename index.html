@@ -34,33 +34,63 @@
 
         function setBeginRange() {
             beginRange = !beginRange ? audio.currentTime : false;
-            clearInterval(idLoop);
+            
+            if(idLoop) endLoop();
+
+            idLoop = beginLoop();
 
             if(beginRange)
-                document.getElementById('beginRange').style = "border: 1px solid red;";
+                document.getElementById('beginRange').style = "border: 2px solid red;";
             else
                 document.getElementById('beginRange').style = "";
         }
 
         function setEndRange() {
-            endRange = !endRange ? audio.currentTime : false;
-            loopDuration = endRange - beginRange;
+            if(audio.currentTime > beginRange || !beginRange) {
+                //endRange will be undefined on first click
+                //if was already clicked and deactivated, will be equal to audio.duration, meaning that the loop will end only on the file's end.
+                if(endRange == undefined || endRange == audio.duration) {
+                    endRange = audio.currentTime;
+                } else {
+                    endRange = false;
+                }
 
-            if(endRange)
-                document.getElementById('endRange').style = "border: 1px solid red;";
-            else
-                document.getElementById('endRange').style = "";
 
-            if(beginRange && endRange) {
-                idLoop = setInterval(function(){
-                    if(audio.currentTime >= endRange) {
-                        audio.currentTime = beginRange;
-                        audio.play()
-                    }
-                }, 500)
-            } else {
-                clearInterval(idLoop);
+                console.log('result: ' + endRange)
+                if(endRange)
+                    document.getElementById('endRange').style = "border: 2px solid red;";
+                else
+                    document.getElementById('endRange').style = "";
+
+                if(beginRange && endRange) {
+                    idLoop = beginLoop();
+                } else {
+                    //sets endRange to the audio's end
+                    endRange = audio.duration;
+                }    
             }
+        }
+
+        function beginLoop() {
+            console.log('new loop')
+            console.log(beginRange)
+            console.log(endRange)
+
+            idLoop = setInterval(function(){
+                if(audio.currentTime >= endRange) {
+                    audio.currentTime = beginRange;
+                    audio.play()
+                }
+            }, 500)
+
+            return idLoop;
+        }
+
+        function endLoop(beginValue, endValue) {
+            console.log('id loop: ' + idLoop)
+            clearInterval(idLoop);
+            audio.currentTime = audio.currentTime
+            audio.play()
         }
 
         function playAudio() {

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio player</title>
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script> 
+</head>
+<body>
+    <h1>Audio</h1>
+    <audio controls id="audioPlayer">
+        <source src="dt.mp3" type="audio/mpeg"/>
+    </audio>
+    <input type="text" onchange="setRate()" id="rate" value="1"/>
+    <button id="beginRange" onclick="setBeginRange()">A</button>
+    <button id="endRange" onclick="setEndRange()">B</button>
+    <button id="play" onclick="playAudio()">></button>
+    <button id="pause" onclick="pauseAudio()">||</button>
+    <script>
+        var audio = document.getElementById('audioPlayer')
+        setRate();
+        var beginRange;
+        var endRange;
+        var loopDuration;
+        var idLoop;
+        var paused = false;
+
+        function setRate() {
+            audio.playbackRate = document.getElementById('rate').value;
+        }
+
+        function setBeginRange() {
+            beginRange = !beginRange ? audio.currentTime : false;
+            clearInterval(idLoop);
+
+            if(beginRange)
+                document.getElementById('beginRange').style = "border: 1px solid red;";
+            else
+                document.getElementById('beginRange').style = "";
+        }
+
+        function setEndRange() {
+            endRange = !endRange ? audio.currentTime : false;
+            loopDuration = endRange - beginRange;
+
+            if(endRange)
+                document.getElementById('endRange').style = "border: 1px solid red;";
+            else
+                document.getElementById('endRange').style = "";
+
+            if(beginRange && endRange) {
+                idLoop = setInterval(function(){
+                    if(audio.currentTime >= endRange) {
+                        audio.currentTime = beginRange;
+                        audio.play()
+                    }
+                }, 500)
+            } else {
+                clearInterval(idLoop);
+            }
+        }
+
+        function playAudio() {
+            if(!paused) {
+                if(beginRange) {
+                    audio.currentTime = beginRange;
+                }  
+            }
+            
+                
+
+            audio.play();
+        }
+
+        function pauseAudio() {
+            audio.currentTime = audio.currentTime
+            audio.pause();
+            paused = true;
+        }
+    </script>
+</body>
+</html>

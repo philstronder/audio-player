@@ -11,17 +11,25 @@
 </head>
 <body>
     <h1>Audio</h1>
+    <!-- <video controls id="videoPlayer"> -->
+        <!-- <source src="" type="video/mp4"/> -->
+    <!-- </video> -->
     <audio controls id="audioPlayer">
-        <source src="dt.mp3" type="audio/mpeg"/>
     </audio>
+    <input type="file" name="" id="fileUpload"/>
     <input type="text" onchange="setRate()" id="rate" value="1"/>
     <button id="beginRange" onclick="setBeginRange()">A</button>
     <button id="endRange" onclick="setEndRange()">B</button>
     <button id="play" onclick="playAudio()">></button>
     <button id="pause" onclick="pauseAudio()">||</button>
     <script>
-        var audio = document.getElementById('audioPlayer')
-        setRate();
+        var audio;
+        document.getElementById('fileUpload').onchange = function() {
+            document.getElementById('audioPlayer').src = URL.createObjectURL(document.getElementById('fileUpload').files[0])
+            audio = document.getElementById('audioPlayer')
+            setRate();
+        }
+        
         var beginRange;
         var endRange;
         var loopDuration;

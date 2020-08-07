@@ -43,13 +43,19 @@ document.getElementById('fileUpload').onchange = function() {
     }
 
     var title = document.querySelector('.song-title')
-    var songName = songFile.name.replace('.mp3', '').replace('.wav', '')
+    var songName = songFile.name.replace('.mp3', '').replace('.wav', '') 
     
-    title.innerHTML = songName.length > 52? songName.substring(0, 51) : songName
+    title.innerHTML = songName.length > 52? songName.substring(0, 51) + '...' : songName
     document.querySelector('.speed-controls').style = 'display: inline-block'
     setRate()
     setDetune()
     playAudio()
+}
+
+document.querySelector('.slider-container').onclick = function(e) {
+    var percent = (e.offsetX * 100) / this.offsetWidth
+    var seconds = (audio.duration * percent) / 100
+    audio.currentTime = seconds
 }
 
 function getFile(){
@@ -93,7 +99,7 @@ function setBeginRange() {
         idLoop = beginLoop()
 
         if(beginRange)
-            document.getElementById('beginRange').style = "border: 2px solid red;"
+            document.getElementById('beginRange').style = "border: 2px solid #CC0000;"
         else
             document.getElementById('beginRange').style = ""    
     }
@@ -112,7 +118,7 @@ function setEndRange() {
             }
 
             if(endRange)
-                document.getElementById('endRange').style = "border: 2px solid red;";
+                document.getElementById('endRange').style = "border: 2px solid #CC0000";
             else
                 document.getElementById('endRange').style = "";
 

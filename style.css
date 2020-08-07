@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.body {
+    margin: 40px;
+    position: relative;
+}
+
+.top-left-corner {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    width: 40px;
+    height: 40px;
+    border-top: 4px solid #545353;
+    border-left: 4px solid #545353;
+}
+
+.top-right-corner {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    width: 40px;
+    height: 40px;
+    border-top: 4px solid #545353;
+    border-right: 4px solid #545353;
+}
+
+.bottom-left-corner {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    width: 40px;
+    height: 40px;
+    border-bottom: 4px solid #545353;
+    border-left: 4px solid #545353;
+}
+
+.bottom-right-corner {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    border-bottom: 4px solid #545353;
+    border-right: 4px solid #545353;
+}
+
+
+/* Audio player */
+main {
+    margin-top: 80px;
+    /* display: flex;
+    justify-content: center; */
+}
+
+section {
+    margin: 24px;
+}
+.title-line-1 {
+    margin-top: 40px;
+    font-family: AvenirNext-Regular;
+    font-size: 80px;
+    color: #545353;
+    letter-spacing: 20px;
+    text-align: center;
+}
+
+.title-line-2, .song-title {
+    font-family: AvenirNext-Regular;
+    font-size: 32px;
+    color: #545353;
+    letter-spacing: 16px;
+    text-align: center;
+}
+
+.song-title {
+    font-family: AvenirNext-Regular;
+    font-size: 24px;
+    color: #545353;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: -20px;
+    /* border: 1px solid black; */
+}
+
+.slider-container {
+    margin: 30px;
+    border: 1px solid #979797;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    position: relative;
+    width: 80%;
+    height: 4px;
+    background-color:  #545353;
+    border-radius: 8px;
+}
+
+.slider-current {
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.load-button {
+    font-family: AndaleMono;
+    font-size: 18px;
+    color: #1F1D1D;
+    letter-spacing: 2px;
+    width: 200px;
+    height: 60px;
+    border: 1px solid #979797;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+input[type=file] {
+    display: none;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 8%;
+}
+
+.control-button {
+    font-family: AvenirNext-Regular;
+    font-size: 40px;
+    text-align: center;
+    color: #1F1D1D;    
+    height: 60px;
+    width: 80px;
+    background-color: white;
+    border: 1px solid #979797;
+}
+
+.speed-controls {
+    font-family: AvenirNext-Regular;
+    font-size: 24px;
+    color: #1F1D1D;
+    letter-spacing: 2px;
+    border: 1px solid #979797;
+    width: 420px;
+    /* height: 122px; */
+    padding: 16px;
+}
+
+.speed-controls .speed {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    /* border: solid 1px black; */
+}
+
+.speed-value {
+    
+    border: 1px solid #979797;
+    width: 48px;
+    height: 28px;
+    font-family: AvenirNext-Regular;
+    font-size: 16px;
+    text-align: center;
+    margin-left: 8px;
+}
+
+.speed-options {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 8px;
+    /* border: solid 1px black; */
+    /* flex: 3; */
+}
+
+.speed-options .option {
+    border: 1px solid black;
+    text-align: center;
+    font-size: 12px;
+    height: 16px;
+    width: 48px;
+    margin: 3px 20px;
+}
+
+.selected {
+    background-color: #cdcdcd;
+    font-weight: 700;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+#play, #pause {
+    padding-top: 5px;
+}

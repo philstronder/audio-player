@@ -58,16 +58,15 @@
 /* Audio player */
 main {
     margin-top: 80px;
-    /* display: flex;
-    justify-content: center; */
 }
 
 section {
     margin: 24px;
 }
+
 .title-line-1 {
     margin-top: 40px;
-    font-family: AvenirNext-Regular;
+    font-family: AvenirNext-Regular, sans-serif;
     font-size: 80px;
     color: #545353;
     letter-spacing: 20px;
@@ -75,7 +74,7 @@ section {
 }
 
 .title-line-2, .song-title {
-    font-family: AvenirNext-Regular;
+    font-family: AvenirNext-Regular, sans-serif;
     font-size: 32px;
     color: #545353;
     letter-spacing: 16px;
@@ -91,7 +90,6 @@ section {
     text-align: center;
     margin-top: 40px;
     margin-bottom: -20px;
-    /* border: 1px solid black; */
 }
 
 .slider-container {
@@ -105,8 +103,6 @@ section {
 
 .slider {
     position: relative;
-    /* width: 80%; */
-    /* padding: 0 10px; */
     height: 4px;
     background-color:  #545353;
     border-radius: 8px;
@@ -123,7 +119,7 @@ section {
 }
 
 .load-button {
-    font-family: AndaleMono;
+    font-family: AndaleMono, sans-serif;
     font-size: 18px;
     color: #1F1D1D;
     letter-spacing: 2px;
@@ -147,7 +143,7 @@ input[type=file] {
 }
 
 .control-button {
-    font-family: AvenirNext-Regular;
+    font-family: AvenirNext-Regular, sans-serif;
     font-size: 40px;
     text-align: center;
     color: #1F1D1D;    
@@ -159,13 +155,12 @@ input[type=file] {
 
 .speed-controls {
     display: none;
-    font-family: AvenirNext-Regular;
+    font-family: AvenirNext-Regular, sans-serif;
     font-size: 24px;
     color: #1F1D1D;
     letter-spacing: 2px;
     border: 1px solid #979797;
     width: 420px;
-    /* height: 122px; */
     padding: 16px;
 }
 
@@ -173,11 +168,9 @@ input[type=file] {
     display: flex;
     justify-content: center;
     flex: 1;
-    /* border: solid 1px black; */
 }
 
 .speed-value {
-    
     border: 1px solid #979797;
     width: 48px;
     height: 28px;
@@ -193,8 +186,6 @@ input[type=file] {
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 8px;
-    /* border: solid 1px black; */
-    /* flex: 3; */
 }
 
 .speed-options .option {
@@ -219,4 +210,75 @@ input[type=file] {
 
 #play, #pause {
     padding-top: 5px;
+}
+
+.donation {
+    font-family: AvenirNext-Regular, sans-serif;
+    font-size: 16px;
+    margin: 64px 0;
+}
+
+.donation-button {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+}
+
+.donation-call-to-action {
+    font-family: "futura-pt", sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 40px;
+}
+
+@media(max-width: 680px) {
+    .title-line-1 {
+        font-size: 48px;    
+        letter-spacing: 10px;    
+    }
+}
+@media(max-width: 460px) {
+    .top-left-corner {
+        top: 16px;
+        left: 16px;
+    }
+
+    .top-right-corner {
+        top: 16px;
+        right: 16px;
+    }
+
+    .title-line-1 {
+        font-size: 28px;        
+        letter-spacing: 16px;
+    }
+
+    .title-line-2 {
+        font-size: 16px;        
+        letter-spacing: 16px;
+    }
+
+    .control-button {
+        width: 36px;
+    }
+
+    .load-button {
+        width: 72px;
+        text-align: center;
+    }
+
+    .donation {
+        margin: 32px;
+    }
+
+    .donation-call-to-action {
+        margin:  0;
+        font-size: 16px;
+    }
+
+    .song-title {
+        font-size: 16px;
+    }
 }

@@ -24,7 +24,7 @@
     
     <main>
         <section class='title'>
-            <div class='title-line-1'>STRONDER</div>
+            <div class='title-line-1'>MUSICIAN</div>
             <div class='title-line-2'>AUDIO PLAYER</div>
         </section>
 
@@ -40,7 +40,7 @@
             <div class="buttons-container">
                 <div class="load-button" onclick="getFile()">
                     LOAD FILE
-                    <input type="file" name="" id="fileUpload"/>
+                    <input type="file" accept="audio/*" name="" id="fileUpload"/>
                 </div>
                 <!-- <input type="text" onchange="setDetune()" id="detune" value="-1"/> -->
                 <button id="play" class='control-button' onclick="playAudio()">                                    
@@ -95,8 +95,27 @@
                 </div>
             </div>
         </section>
-
     </main>
+
+    <section class='donation'>
+        <div class='donation-call-to-action'>
+            <!-- <p>Like it? Wanna buy me a coffee? <br>Or maybe a beer?</p> -->
+            <p>Please support to keep this service alive. <br> Help to create a community of great musicians.</p>
+        </div>
+
+        <div class='donation-button'>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_donations" />
+                <input type="hidden" name="business" value="felipevale@gmail.com" />
+                <input type="hidden" name="currency_code" value="USD" />
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                <img alt="" border="0" src="https://www.paypal.com/en_BR/i/scr/pixel.gif" width="1" height="1" />
+            </form>  
+        </div>
+        
+    
+        
+    </section>
             
     <footer>
         <div class="bottom-left-corner">

@@ -43,7 +43,7 @@ document.getElementById('fileUpload').onchange = function() {
     }
 
     var title = document.querySelector('.song-title')
-    var songName = songFile.name.replace('.mp3', '')
+    var songName = songFile.name.replace('.mp3', '').replace('.wav', '')
     
     title.innerHTML = songName.length > 52? songName.substring(0, 51) : songName
     document.querySelector('.speed-controls').style = 'display: inline-block'

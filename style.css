@@ -83,10 +83,11 @@ section {
 }
 
 .song-title {
-    font-family: AvenirNext-Regular;
-    font-size: 24px;
+    font-family: Courier New;
+    font-size: 20px;
+    font-weight: 500;
     color: #545353;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     text-align: center;
     margin-top: 40px;
     margin-bottom: -20px;
@@ -94,17 +95,18 @@ section {
 }
 
 .slider-container {
-    margin: 30px;
+    margin: 24px;
     border: 1px solid #979797;
     height: 32px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .slider {
     position: relative;
-    width: 80%;
+    /* width: 80%; */
+    /* padding: 0 10px; */
     height: 4px;
     background-color:  #545353;
     border-radius: 8px;
@@ -126,7 +128,7 @@ section {
     color: #1F1D1D;
     letter-spacing: 2px;
     width: 200px;
-    height: 60px;
+    height: 64px;
     border: 1px solid #979797;
     display: flex;
     justify-content: center;
@@ -149,13 +151,14 @@ input[type=file] {
     font-size: 40px;
     text-align: center;
     color: #1F1D1D;    
-    height: 60px;
+    height: 64px;
     width: 80px;
     background-color: white;
     border: 1px solid #979797;
 }
 
 .speed-controls {
+    display: none;
     font-family: AvenirNext-Regular;
     font-size: 24px;
     color: #1F1D1D;
@@ -201,6 +204,7 @@ input[type=file] {
     height: 16px;
     width: 48px;
     margin: 3px 20px;
+    cursor: pointer;
 }
 
 .selected {

@@ -32,24 +32,36 @@ if(!!speedValue) {
     }
 }
 
+//When the audio file is selected
 document.getElementById('fileUpload').onchange = function() {
     var songFile = document.getElementById('fileUpload').files[0]
     document.getElementById('audioPlayer').src = URL.createObjectURL(songFile)
     audio = document.getElementById('audioPlayer')
-
+    
     audio.ontimeupdate = function() {
         var width = (audio.currentTime / audio.duration * 100) + '%'
         document.getElementsByClassName('slider')[0].style = 'width:' + width
+        
+        document.querySelector('.current-time').innerHTML = formatTime(audio.currentTime)
     }
-
+    
     var title = document.querySelector('.song-title')
     var songName = songFile.name.replace('.mp3', '').replace('.wav', '') 
     
     title.innerHTML = songName.length > 52? songName.substring(0, 51) + '...' : songName
     document.querySelector('.speed-controls').style = 'display: inline-block'
+    
     setRate()
     setDetune()
     playAudio()
+}
+
+function formatTime(pSeconds) {   
+    var minutes = Math.floor(pSeconds / 60)
+    var seconds = Math.floor(pSeconds % 60)
+    seconds = seconds < 10 ? '0' + seconds.toString() : seconds.toString()
+
+    return minutes.toString() + ':' + seconds.toString()
 }
 
 document.querySelector('.slider-container').onclick = function(e) {
@@ -159,6 +171,9 @@ function playAudio() {
         }
         
         audio.play()    
+        setTimeout(() => {
+            document.querySelector('.end-time').innerHTML = formatTime(audio.duration)
+        }, 500);
     }
 }
 

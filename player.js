@@ -51,6 +51,11 @@ document.getElementById('fileUpload').onchange = function() {
     title.innerHTML = songName.length > 52? songName.substring(0, 51) + '...' : songName
     document.querySelector('.speed-controls').style = 'display: inline-block'
     
+
+    //align title
+    var title = document.querySelector('.title')
+    // title.classList.add('title-song-selected')
+
     setRate()
     setDetune()
     playAudio()

@@ -20,8 +20,6 @@
 }
 
 .moldura {
-    /* max-width: 1000px; */
-    /* border: 4px solid green; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,7 +81,14 @@ main {
     /* height: 100vh; */
 }
 
-section {
+button:hover, 
+.load-button:hover,
+.option:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.player, .container, .duration {
     margin: 24px;
 }
 
@@ -151,14 +156,6 @@ section {
     font-size: 14px;
 }
 
-.current-time {
-
-}
-
-.end-time {
-
-}
-
 .load-button {
     font-family: AndaleMono, sans-serif;
     font-size: 18px;
@@ -203,6 +200,7 @@ input[type=file] {
     border: 1px solid #979797;
     width: 420px;
     padding: 16px;
+    height: 140px;
 }
 
 .speed-controls .speed {
@@ -256,7 +254,11 @@ input[type=file] {
 .donation {
     font-family: AvenirNext-Regular, sans-serif;
     font-size: 16px;
-    margin: 64px 0;
+    margin: 32px 0 0 0;
+}
+
+.donation-song-selected {
+    margin: 0;
 }
 
 .donation-button {
@@ -281,6 +283,10 @@ input[type=file] {
     }
 }
 @media(max-width: 460px) {
+    .moldura {
+        height: 93vh;
+    }
+    
     .top-left-corner {
         top: 16px;
         left: 16px;
@@ -299,6 +305,10 @@ input[type=file] {
     .title-line-2 {
         font-size: 16px;        
         letter-spacing: 16px;
+    }
+
+    .buttons-container {
+        margin-top: 28px;
     }
 
     .control-button {
@@ -322,6 +332,20 @@ input[type=file] {
         height: 16px;
     }
 
+    .song-time {
+        margin: -15px 2% 10px 2%;
+    }
+
+    .speed {
+        font-size: 20px;
+    }
+
+    .speed-value {
+        height: 28px;
+        font-size: 18px;
+        margin: -2px 0 0 8px;
+    }
+
     .donation {
         margin: 32px;
     }
@@ -332,6 +356,7 @@ input[type=file] {
     }
 
     .song-title {
-        font-size: 16px;
+        font-size: 59px;
+        
     }
 }
